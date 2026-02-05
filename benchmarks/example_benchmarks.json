@@ -1,0 +1,17 @@
+[
+    {
+        "id": "q1",
+        "question": "What is the total revenue by game?",
+        "expected_sql": "SELECT game_name, SUM(revenue) as total_revenue FROM games GROUP BY game_name ORDER BY total_revenue DESC"
+    },
+    {
+        "id": "q2",
+        "question": "How many active users do we have per month?",
+        "expected_sql": "SELECT DATE_TRUNC('month', activity_date) as month, COUNT(DISTINCT user_id) as active_users FROM user_activity GROUP BY 1 ORDER BY 1"
+    },
+    {
+        "id": "q3",
+        "question": "What are the top 5 games by player count?",
+        "expected_sql": "SELECT game_name, COUNT(DISTINCT player_id) as player_count FROM game_sessions GROUP BY game_name ORDER BY player_count DESC LIMIT 5"
+    }
+]

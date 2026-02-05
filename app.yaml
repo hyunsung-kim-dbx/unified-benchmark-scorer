@@ -1,0 +1,21 @@
+# Databricks App configuration
+command:
+  - "streamlit"
+  - "run"
+  - "app.py"
+  - "--server.port=8501"
+  - "--server.address=0.0.0.0"
+
+env:
+  - name: DATABRICKS_HOST
+    value: "{{secrets/benchmark-app/databricks-host}}"
+  - name: SQL_WAREHOUSE_ID
+    value: "{{secrets/benchmark-app/warehouse-id}}"
+  - name: GENIE_UNTUNED_SPACE_ID
+    value: "{{secrets/benchmark-app/genie-untuned-id}}"
+  - name: GENIE_TUNED_SPACE_ID
+    value: "{{secrets/benchmark-app/genie-tuned-id}}"
+  - name: MAS_ENDPOINT
+    value: "{{secrets/benchmark-app/mas-endpoint}}"
+  - name: ANTHROPIC_API_KEY
+    value: "{{secrets/benchmark-app/anthropic-key}}"
